@@ -1,0 +1,8 @@
+artifact_location: file:C:/Users/Sunishka/OneDrive/Desktop/mlops-churn-pipeline/mlruns/147975382557216068
+creation_time: 1780665295072
+experiment_id: '147975382557216068'
+last_update_time: 1780665295072
+lifecycle_stage: active
+name: Customer_Churn_Models
+trace_location: null
+workspace: default
