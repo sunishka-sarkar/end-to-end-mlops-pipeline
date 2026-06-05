@@ -43,6 +43,11 @@ def predict(request: CustomerRequest):
     processed_data = preprocessor.transform(
         data
     )
+    print("RAW COLUMNS:")
+    print(data.columns.tolist())
+
+    print("PROCESSED SHAPE:")
+    print(processed_data.shape)
 
     # Predict
     prediction = model.predict(

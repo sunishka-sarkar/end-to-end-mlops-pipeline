@@ -2,6 +2,10 @@ import streamlit as st
 import pandas as pd
 import sqlite3
 import json
+from serving.model_loader import (
+    model,
+    preprocessor
+)
 
 # =====================================
 # PAGE CONFIG

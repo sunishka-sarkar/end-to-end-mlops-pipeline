@@ -15,3 +15,8 @@ model = joblib.load(
 preprocessor = joblib.load(
     PREPROCESSOR_PATH
 )
+print("Loading model from:", MODEL_PATH)
+print("Loading preprocessor from:", PREPROCESSOR_PATH)
+
+print("Model type:", type(model))
+print("Preprocessor type:", type(preprocessor))
