@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+
+  api:
+    build: .
+    container_name: churn-api
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - .:/app
+
+  dashboard:
+
+    build: .
+
+    container_name: churn-dashboard
+
+    command: >
+      streamlit run dashboard/app.py
+      --server.address=0.0.0.0
+      --server.port=8501
+
+    ports:
+      - "8501:8501"
+
+    volumes:
+      - .:/app
+
+  scheduler:
+
+    build: .
+
+    container_name: churn-scheduler
+
+    command: >
+      python orchestration/scheduler.py
+
+    volumes:
+      - .:/app

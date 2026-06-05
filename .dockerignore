@@ -1,0 +1,9 @@
+venv
+__pycache__
+.git
+mlruns
+*.pyc
+*.pyo
+*.pyd
+.idea
+.vscode

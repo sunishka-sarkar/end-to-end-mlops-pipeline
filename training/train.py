@@ -148,10 +148,12 @@ os.makedirs(
 
 joblib.dump(
     model,
-    "training/models/logistic_regression.pkl"
+    "training/champion/champion_model.pkl"
 )
 
-print("\nModel Saved!")
+print(
+    "\nChampion Model Updated!"
+)
 
 print(
     "training/models/logistic_regression.pkl"
