@@ -115,6 +115,19 @@ print("Preprocessor Created")
 X_train_processed = preprocessor.fit_transform(
     X_train
 )
+import joblib
+
+os.makedirs(
+    "training/artifacts",
+    exist_ok=True
+)
+
+joblib.dump(
+    preprocessor,
+    "training/artifacts/preprocessor.pkl"
+)
+
+print("Preprocessor Saved")
 
 X_test_processed = preprocessor.transform(
     X_test

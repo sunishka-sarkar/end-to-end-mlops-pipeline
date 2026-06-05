@@ -5,7 +5,10 @@ from database.db import SessionLocal
 from database.crud import save_prediction
 
 from serving.schemas import CustomerRequest
-from serving.model_loader import model
+from serving.model_loader import (
+    model,
+    preprocessor
+)
 
 app = FastAPI(
     title="Customer Churn Prediction API"
@@ -31,18 +34,26 @@ def predict(request: CustomerRequest):
 
     request_data = request.model_dump()
 
+    # Raw customer data
     data = pd.DataFrame(
         [request_data]
     )
 
-    prediction = model.predict(
+    # Apply preprocessing
+    processed_data = preprocessor.transform(
         data
+    )
+
+    # Predict
+    prediction = model.predict(
+        processed_data
     )[0]
 
     probability = model.predict_proba(
-        data
+        processed_data
     )[0][1]
 
+    # Save prediction
     db = SessionLocal()
 
     try:
